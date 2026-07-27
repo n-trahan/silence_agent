@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silence Agent — Donor Inflow Review</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="analyzer.js"></script>
+<style>
+  :root {
+    --bg: #0e1117; --panel: #1a1f2b; --border: #2c3444; --text: #e6e9f0;
+    --muted: #9aa4b5; --accent: #4da3ff; --red: #8b1a1a; --amber: #7a4f01;
+    --green-bg: #123524; --green-tx: #7ee2a8; --warn-bg: #3a2f10; --warn-tx: #ffd76e;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  .caption { color: var(--muted); font-size: 13.5px; margin-bottom: 22px; }
+  .drop { border: 2px dashed var(--border); border-radius: 10px; padding: 34px;
+          text-align: center; color: var(--muted); cursor: pointer; transition: .15s; }
+  .drop.hover, .drop:hover { border-color: var(--accent); color: var(--text); }
+  .banner { border-radius: 8px; padding: 10px 14px; margin: 18px 0 0; font-size: 14px; }
+  .banner.ok { background: var(--green-bg); color: var(--green-tx); }
+  .banner.warn { background: var(--warn-bg); color: var(--warn-tx); }
+  .banner.err { background: #3a1515; color: #ff9d9d; }
+  .metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 18px 0; }
+  .metric { background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+            padding: 14px 16px; }
+  .metric .label { color: var(--muted); font-size: 12.5px; }
+  .metric .value { font-size: 26px; font-weight: 600; margin-top: 2px; }
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin: 6px 0 16px; }
+  .tab { background: none; border: none; color: var(--muted); padding: 9px 16px;
+         font-size: 14.5px; cursor: pointer; border-bottom: 2px solid transparent; }
+  .tab.active { color: var(--text); border-bottom-color: var(--accent); }
+  .panel { display: none; } .panel.active { display: block; }
+  .tbl-scroll { max-height: 540px; overflow: auto; border: 1px solid var(--border);
+                border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th { position: sticky; top: 0; background: #232a3a; text-align: left; padding: 8px 10px;
+       white-space: nowrap; cursor: pointer; user-select: none; }
+  td { padding: 7px 10px; border-top: 1px solid var(--border); white-space: nowrap; }
+  td.wrap-cell { white-space: normal; min-width: 260px; }
+  tr.fading td { background: var(--red); color: #fff; }
+  tr.volatile td { background: var(--amber); color: #fff; }
+  .note { color: var(--muted); font-size: 12.5px; margin-top: 8px; }
+  .picker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .chip { background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+          padding: 4px 12px; font-size: 13px; cursor: pointer; color: var(--muted); }
+  .chip.on { border-color: var(--accent); color: var(--text); background: #1d2c44; }
+  .chart-box { background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+               padding: 16px; margin-bottom: 18px; }
+  .btn { background: var(--accent); color: #06121f; border: none; border-radius: 8px;
+         padding: 11px 20px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 22px; }
+  .btn:hover { filter: brightness(1.1); }
+  details { margin-top: 18px; color: var(--muted); font-size: 13px; }
+  details pre { background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+                padding: 12px; white-space: pre-wrap; }
+  #results { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Silence Agent — Donor Inflow Review</h1>
+  <div class="caption">Drop in your receiving log. The agent keeps only what donors bring in,
+    flags who is fading or volatile, and builds the analysis workbook. It drafts — you decide
+    and send. Runs entirely in your browser: no data leaves this device.</div>
+
+  <div class="drop" id="drop">
+    <input type="file" id="file" accept=".xlsx,.csv" hidden>
+    <div style="font-size:17px">Drop the receiving log here, or click to browse</div>
+    <div style="font-size:13px;margin-top:4px">.xlsx or .csv — one row per receipt</div>
+  </div>
+  <div id="banner"></div>
+
+  <div id="results">
+    <div class="metrics" id="metrics"></div>
+    <div class="tabs">
+      <button class="tab active" data-p="p1">All donors</button>
+      <button class="tab" data-p="p2">Weekly pounds</button>
+      <button class="tab" data-p="p3">Follow-up tasks</button>
+    </div>
+    <div class="panel active" id="p1">
+      <div class="tbl-scroll"><table id="donorTbl"></table></div>
+      <div class="note">Dark red = fading (recent avg &lt; 80% of baseline) · Dark amber =
+        volatile (CV &gt; 0.75) · insufficient_data = fewer than 6 receipts in window</div>
+    </div>
+    <div class="panel" id="p2">
+      <div class="picker" id="picker"></div>
+      <div class="chart-box"><canvas id="lineChart" height="90"></canvas></div>
+      <div class="chart-box"><canvas id="barChart" height="110"></canvas></div>
+    </div>
+    <div class="panel" id="p3">
+      <div class="tbl-scroll"><table id="taskTbl"></table></div>
+    </div>
+    <button class="btn" id="dl"></button>
+    <details><summary>Data cleaning &amp; mapping details</summary><pre id="details"></pre></details>
+    <div class="note">Every number is computed from the uploaded log — nothing is invented.</div>
+  </div>
+</div>
+
+<script>
+"use strict";
+let STATE = null, lineChart = null, barChart = null;
+
+const drop = document.getElementById("drop"), fileIn = document.getElementById("file");
+drop.addEventListener("click", () => fileIn.click());
+drop.addEventListener("dragover", (e) => { e.preventDefault(); drop.classList.add("hover"); });
+drop.addEventListener("dragleave", () => drop.classList.remove("hover"));
+drop.addEventListener("drop", (e) => {
+  e.preventDefault(); drop.classList.remove("hover");
+  if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+});
+fileIn.addEventListener("change", () => fileIn.files.length && handleFile(fileIn.files[0]));
+document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach((x) => x.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach((x) => x.classList.remove("active"));
+  t.classList.add("active");
+  document.getElementById(t.dataset.p).classList.add("active");
+}));
+
+function banner(cls, html) {
+  document.getElementById("banner").innerHTML = `<div class="banner ${cls}">${html}</div>`;
+}
+
+async function handleFile(f) {
+  try {
+    const buf = await f.arrayBuffer();
+    const wb = XLSX.read(buf, { cellDates: true });
+    const aoa = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1, raw: true });
+    STATE = runPipeline(aoa);
+    render();
+  } catch (err) {
+    banner("err", "Could not analyze the file: " + err.message);
+    document.getElementById("results").style.display = "none";
+  }
+}
+
+const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const fmt = (v) => (typeof v === "number" ? v.toLocaleString() : (v ?? ""));
+
+function render() {
+  const { res, followups, rep, mapping } = STATE;
+  const dn = res.donors;
+  const fading = dn.filter((r) => r.fading_donor === true);
+  const w0 = dayToISO(res.window[0]), w1 = dayToISO(res.window[1]);
+
+  let msg = `Donor inflows only: kept ${rep.rows_kept} of ${rep.rows_in} rows ` +
+    `(excluded purchased/USDA/invalid). Window <b>${w0} → ${w1}</b> ` +
+    `(${res.n_weeks} weeks), anchor = latest receipt.`;
+  banner("ok", msg);
+  if (res.n_weeks < 16) {
+    document.getElementById("banner").innerHTML +=
+      `<div class="banner warn">Only ${res.n_weeks} weeks of history (the fading calc is ` +
+      `designed for 16) — treat fading flags as provisional.</div>`;
+  }
+
+  const lost = Math.round(fading.reduce((s, r) => s + r.baseline_avg_wk_lbs - r.recent_avg_wk_lbs, 0));
+  const cards = [["Donors", dn.length], ["Pounds received", res.total_lbs.toLocaleString()],
+    ["Fading", fading.length], ["Volatile", dn.filter((r) => r.volatile).length],
+    ["Lbs/wk lost to fading", lost.toLocaleString()]];
+  document.getElementById("metrics").innerHTML = cards.map(([l, v]) =>
+    `<div class="metric"><div class="label">${l}</div><div class="value">${v}</div></div>`).join("");
+
+  // --- All donors table ---
+  const cols = ["donor_name", "donor_score", "total_lbs_16wk", "recent_avg_wk_lbs",
+    "baseline_avg_wk_lbs", "fading_ratio", "fading_donor", "volatility_cv", "volatile",
+    "last_receipt_date", "receipts_count"];
+  document.getElementById("donorTbl").innerHTML =
+    "<thead><tr>" + cols.map((c) => `<th>${c}</th>`).join("") + "</tr></thead><tbody>" +
+    dn.map((r) => {
+      const cls = r.fading_donor === true ? "fading" : (r.volatile ? "volatile" : "");
+      return `<tr class="${cls}">` + cols.map((c) => `<td>${esc(fmt(r[c]))}</td>`).join("") + "</tr>";
+    }).join("") + "</tbody>";
+
+  // --- Weekly pounds ---
+  const picker = document.getElementById("picker");
+  const defaultOn = new Set(fading.slice(0, 5).map((r) => r.donor_name));
+  picker.innerHTML = dn.map((r) =>
+    `<span class="chip ${defaultOn.has(r.donor_name) ? "on" : ""}" data-d="${esc(r.donor_name)}">${esc(r.donor_name)}</span>`).join("");
+  picker.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => {
+    c.classList.toggle("on"); drawLine();
+  }));
+  drawLine();
+  drawBar();
+
+  // --- Follow-ups ---
+  const tt = document.getElementById("taskTbl");
+  if (followups.length) {
+    const tcols = ["priority", "task", "why", "donor_name", "assigned_role",
+      "suggested_deadline", "draft_outreach"];
+    tt.innerHTML = "<thead><tr>" + tcols.map((c) => `<th>${c}</th>`).join("") +
+      "</tr></thead><tbody>" + followups.map((r) => "<tr>" + tcols.map((c) =>
+        `<td class="${["task","why","draft_outreach"].includes(c) ? "wrap-cell" : ""}">${esc(r[c])}</td>`).join("") + "</tr>").join("") + "</tbody>";
+  } else {
+    tt.innerHTML = "<tr><td>No follow-up tasks triggered.</td></tr>";
+  }
+
+  const fname = `donor_trend_analysis_${dayToISO(res.anchor)}.xlsx`;
+  const dl = document.getElementById("dl");
+  dl.textContent = `⬇ Download ${fname} (5-sheet workbook)`;
+  dl.onclick = () => downloadWorkbook(fname);
+
+  document.getElementById("details").textContent = JSON.stringify({
+    header_mapping: mapping,
+    excluded_non_donor_rows: rep.excluded_non_donor,
+    dropped_unparseable_dates: rep.dropped_dates,
+    dropped_invalid_weights: rep.invalid_weights,
+    donor_name_merges: rep.merges.length ? rep.merges : "none",
+  }, null, 2);
+
+  document.getElementById("results").style.display = "block";
+}
+
+function drawLine() {
+  const { res } = STATE;
+  const picked = [...document.querySelectorAll(".chip.on")].map((c) => c.dataset.d);
+  const labels = res.all_weeks.map(dayToISO);
+  const palette = ["#4da3ff", "#ff6b6b", "#ffd166", "#06d6a0", "#c77dff", "#f4978e",
+                   "#8ecae6", "#ffb703", "#90be6d", "#e5989b"];
+  const datasets = picked.map((n, i) => ({
+    label: n, data: res.weekly[n], borderColor: palette[i % palette.length],
+    backgroundColor: palette[i % palette.length], tension: .25, pointRadius: 2,
+  }));
+  if (lineChart) lineChart.destroy();
+  lineChart = new Chart(document.getElementById("lineChart"), {
+    type: "line", data: { labels, datasets },
+    options: { plugins: { legend: { labels: { color: "#e6e9f0" } },
+        title: { display: true, text: "Weekly pounds by donor", color: "#e6e9f0" } },
+      scales: { x: { ticks: { color: "#9aa4b5" }, grid: { color: "#2c3444" } },
+                y: { ticks: { color: "#9aa4b5" }, grid: { color: "#2c3444" } } } },
+  });
+}
+
+function drawBar() {
+  const { res } = STATE;
+  const top = res.donors.slice(0, 15);
+  if (barChart) barChart.destroy();
+  barChart = new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: { labels: top.map((r) => r.donor_name),
+      datasets: [{ label: "total_lbs_16wk", data: top.map((r) => r.total_lbs_16wk),
+                   backgroundColor: "#4da3ff" }] },
+    options: { indexAxis: "y",
+      plugins: { legend: { display: false },
+        title: { display: true, text: "Top donors by pounds in window", color: "#e6e9f0" } },
+      scales: { x: { ticks: { color: "#9aa4b5" }, grid: { color: "#2c3444" } },
+                y: { ticks: { color: "#9aa4b5" }, grid: { color: "#2c3444" } } } },
+  });
+}
+
+/* ---- 5-sheet workbook export (SheetJS) ---- */
+const SHEET_COLS = ["rank", "donor_name", "donor_score", "score_basis", "consistency",
+  "amount", "quality", "variety", "total_lbs_16wk", "recent_avg_wk_lbs",
+  "baseline_avg_wk_lbs", "fading_ratio", "fading_donor", "volatility_cv", "volatile",
+  "last_receipt_date", "receipts_count"];
+const ALL_COLS = SHEET_COLS.filter((c) => c !== "score_basis");
+
+function downloadWorkbook(fname) {
+  const { res, followups, rep, mapping } = STATE;
+  const dn = res.donors, cfg = res.config;
+  const fading = dn.filter((r) => r.fading_donor === true);
+  const wb = XLSX.utils.book_new();
+
+  const toRows = (list, cols, startRank) => [cols].concat(list.map((r, i) =>
+    cols.map((c) => c === "rank" ? (startRank + i) : (r[c] === null ? "" : String(r[c]) === "true" || String(r[c]) === "false" ? r[c] : r[c]))));
+
+  // Summary
+  const w0 = dayToISO(res.window[0]), w1 = dayToISO(res.window[1]);
+  const sum = [
+    ["Donor Trend Analysis — donor inflows only", ""], ["", ""],
+    ["Anchor date (latest receipt)", dayToISO(res.anchor)],
+    ["Analysis window", `${w0} to ${w1} (${res.n_weeks} ISO weeks)`],
+    ["Total donors", dn.length],
+    ["Total pounds received (donor inflows)", res.total_lbs],
+    ["Fading donors", fading.length],
+    ["Volatile donors", dn.filter((r) => r.volatile).length],
+    ["Insufficient data", dn.filter((r) => r.fading_donor === "insufficient_data").length],
+    ["New donors", dn.filter((r) => r.fading_donor === "new_donor").length],
+    ["", ""],
+    ["Config: fading threshold", cfg.fading_threshold],
+    ["Config: volatility CV threshold", cfg.cv_threshold],
+    ["Config: min receipts", cfg.min_receipts],
+    ["Config: recent weeks / baseline weeks used", `${res.n_recent} / ${res.n_baseline}`],
+    ["", ""],
+    ["Header mapping", Object.entries(mapping).map(([k, v]) => `${k} <- ${v}`).join("; ")],
+    ["Rows excluded (non-donor: purchased/USDA)",
+      Object.entries(rep.excluded_non_donor).map(([k, v]) => `${k}: ${v}`).join("; ") || "none"],
+    ["Rows dropped (unparseable dates)", rep.dropped_dates],
+    ["Rows dropped (invalid weights)", rep.invalid_weights],
+    ["Donor-name merges", rep.merges.join("; ") || "none"],
+  ];
+  if (res.n_weeks < 16) sum.push(["WARNING",
+    `Only ${res.n_weeks} weeks of history (spec calls for 16). Baseline uses the ` +
+    `${res.n_baseline} available prior weeks — treat fading flags as provisional.`]);
+  const findings = [];
+  const topFad = [...fading].sort((a, b) => b.total_lbs_16wk - a.total_lbs_16wk);
+  if (topFad.length) {
+    const r = topFad[0];
+    findings.push(`Largest fading donor: ${r.donor_name} — ${r.recent_avg_wk_lbs} lbs/wk recently vs ${r.baseline_avg_wk_lbs} baseline (ratio ${r.fading_ratio}).`);
+  }
+  const gap = Math.round(fading.reduce((s, r) => s + r.baseline_avg_wk_lbs - r.recent_avg_wk_lbs, 0));
+  if (gap > 0) findings.push(`Fading donors are down a combined ${gap.toLocaleString()} lbs/week vs baseline.`);
+  for (const [cat, share] of res.exposure.filter(([, s]) => s >= cfg.category_exposure_pct)) {
+    findings.push(`Fading donors supply ${Math.round(share * 100)}% of ${cat} pounds — category exposure.`);
+  }
+  sum.push(["", ""]);
+  findings.forEach((f, i) => sum.push([`Finding ${i + 1}`, f]));
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(sum), "Summary");
+
+  // Top / Bottom / All
+  const rankable = dn.filter((r) => !["insufficient_data", "new_donor"].includes(r.fading_donor));
+  const unranked = dn.filter((r) => ["insufficient_data", "new_donor"].includes(r.fading_donor));
+  const srt = [...rankable].sort((a, b) => b.donor_score - a.donor_score || b.total_lbs_16wk - a.total_lbs_16wk);
+  const top10 = srt.slice(0, 10);
+  const bot10 = srt.slice(Math.max(10, srt.length - 10)).reverse();
+
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(toRows(top10, SHEET_COLS, 1)), "Top 10 Donors");
+  const botRows = toRows(bot10, SHEET_COLS, 1);
+  if (unranked.length) {
+    botRows.push([], ["Not ranked (insufficient data / new donors):"]);
+    const uc = SHEET_COLS.slice(1);
+    botRows.push(uc);
+    unranked.forEach((r) => botRows.push(uc.map((c) => r[c] === null ? "" : r[c])));
+  }
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(botRows), "Bottom 10 Donors");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(toRows(dn, ALL_COLS, 1)), "All Donors");
+
+  const tcols = ["priority", "task", "why", "donor_name", "assigned_role",
+    "suggested_deadline", "draft_outreach"];
+  const tsheet = followups.length
+    ? XLSX.utils.aoa_to_sheet([tcols].concat(followups.map((r) => tcols.map((c) => r[c]))))
+    : XLSX.utils.aoa_to_sheet([["No follow-up tasks triggered."]]);
+  XLSX.utils.book_append_sheet(wb, tsheet, "Suggested Follow-ups");
+
+  XLSX.writeFile(wb, fname);
+}
+</script>
+</body>
+</html>
