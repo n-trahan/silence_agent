@@ -4,7 +4,7 @@ A donor-reliability agent for food banks — catching quiet donor decline before
 
 When donations quietly fade, food banks fill the gap with purchased food at spot prices. The Silence Agent watches the receiving log, scores every donor, flags who is fading or volatile, and drafts the follow-up — the agent drafts, a human decides and sends.
 
-**Note:** The current receiving log template received is built for the [Food Bank of Contra Costa](Food Bank Contra Costa/Solano)[https://www.foodbankccs.org]
+**Note:** The current receiving log template received is built for the [Food Bank Contra Costa/Solano](https://www.foodbankccs.org)
 
 **Live app:** upload your receiving log (.xlsx or .csv, one row per receipt) and everything runs in your browser. No server, no database — **no data ever leaves your device.**
 
