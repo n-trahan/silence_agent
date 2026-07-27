@@ -16,7 +16,7 @@ Drop in the receiving log:
 
 The agent keeps only donor inflows (purchased and USDA/TEFAP loads are excluded automatically), builds a 16-week analysis window anchored to the latest receipt, and scores every donor on consistency, amount, quality, and variety:
 
-![Dashboard with scored donor table](screenshots/02-dashboard.png)
+![Dashboard with scored donor table](screenshots/03-workbook-summary.png)
 
 - **Dark red = fading** — recent 4-week average below 80% of the 12-week baseline
 - **Dark amber = volatile** — week-to-week coefficient of variation above 0.75
@@ -27,10 +27,11 @@ The agent keeps only donor inflows (purchased and USDA/TEFAP loads are excluded 
 One click exports `donor_trend_analysis_<date>.xlsx` — Summary, Top 10 Donors, Bottom 10 Donors, All Donors, and Suggested Follow-ups:
 
 ![Workbook summary sheet](screenshots/03-workbook-summary.png)
+![Workbook summary sheet](screenshots/02-dashboard.png)
 
 Follow-up tasks are prioritized and routed to the right desk (Director of Operations, Donor Relations, Procurement, Inventory, Warehouse), with outreach emails already drafted:
 
-![Suggested follow-ups sheet with drafted outreach](screenshots/04-workbook-followups.png)
+![Suggested follow-ups sheet with drafted outreach](screenshots/01-upload.png)
 
 ## Features
 
