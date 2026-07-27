@@ -26,7 +26,6 @@ The agent keeps only donor inflows (purchased and USDA/TEFAP loads are excluded 
 
 One click exports `donor_trend_analysis_<date>.xlsx` — Summary, Top 10 Donors, Bottom 10 Donors, All Donors, and Suggested Follow-ups:
 
-![Workbook summary sheet](screenshots/03-workbook-summary.png)
 ![Workbook summary sheet](screenshots/02-dashboard.png)
 
 Follow-up tasks are prioritized and routed to the right desk (Director of Operations, Donor Relations, Procurement, Inventory, Warehouse), with outreach emails already drafted:
