@@ -12,7 +12,7 @@ Directly access from my github pages [link](https://n-trahan.github.io/silence_a
 
 Drop in the receiving log:
 
-![Upload screen](screenshots/01-upload.png)
+![Upload screen](screenshots/test_recieving_log.png)
 
 The agent keeps only donor inflows (purchased and USDA/TEFAP loads are excluded automatically), builds a 16-week analysis window anchored to the latest receipt, and scores every donor on consistency, amount, quality, and variety:
 
