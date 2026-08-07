@@ -1,6 +1,6 @@
 # The Silence Agent — Donor Inflow Review
 
-A donor-reliability agent for food banks — catching quiet donor decline before it becomes a cash problem.
+A donor-reliability tool for food banks — catching quiet donor decline before it becomes a cash problem.
 
 When donations quietly fade, food banks fill the gap with purchased food at spot prices. The Silence Agent watches the receiving log, scores every donor, flags who is fading or volatile, and drafts the follow-up — the agent drafts, a human decides and sends.
 
