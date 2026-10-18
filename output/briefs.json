@@ -1,0 +1,275 @@
+[
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A029",
+      "name": "Agency 029",
+      "city": "San Pablo",
+      "households_served": 631,
+      "median_interval_days": 14.0,
+      "days_since_last_order": 53,
+      "missed_cycles": 3,
+      "est_undelivered_lbs": 2436.0,
+      "est_undelivered_usd": 4798.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 029 (San Pablo) today; if unreachable in 48h, arrange temporary coverage for ~631 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 029 team,\n\nWe noticed it's been about 53 days since your last order, and you're usually with us every 14 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A035",
+      "name": "Agency 035",
+      "city": "Martinez",
+      "households_served": 370,
+      "median_interval_days": 15.0,
+      "days_since_last_order": 61,
+      "missed_cycles": 4,
+      "est_undelivered_lbs": 2469.0,
+      "est_undelivered_usd": 4865.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 035 (Martinez) today; if unreachable in 48h, arrange temporary coverage for ~370 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 035 team,\n\nWe noticed it's been about 61 days since your last order, and you're usually with us every 15 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A057",
+      "name": "Agency 057",
+      "city": "Suisun City",
+      "households_served": 1127,
+      "median_interval_days": 14.0,
+      "days_since_last_order": 30,
+      "missed_cycles": 2,
+      "est_undelivered_lbs": 2219.0,
+      "est_undelivered_usd": 4371.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 057 (Suisun City) today; if unreachable in 48h, arrange temporary coverage for ~1127 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 057 team,\n\nWe noticed it's been about 30 days since your last order, and you're usually with us every 14 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A082",
+      "name": "Agency 082",
+      "city": "Richmond",
+      "households_served": 803,
+      "median_interval_days": 15.0,
+      "days_since_last_order": 33,
+      "missed_cycles": 2,
+      "est_undelivered_lbs": 4801.0,
+      "est_undelivered_usd": 9458.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 082 (Richmond) today; if unreachable in 48h, arrange temporary coverage for ~803 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 082 team,\n\nWe noticed it's been about 33 days since your last order, and you're usually with us every 15 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A144",
+      "name": "Agency 144",
+      "city": "Vacaville",
+      "households_served": 778,
+      "median_interval_days": 14.0,
+      "days_since_last_order": 54,
+      "missed_cycles": 3,
+      "est_undelivered_lbs": 6590.0,
+      "est_undelivered_usd": 12981.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 144 (Vacaville) today; if unreachable in 48h, arrange temporary coverage for ~778 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 144 team,\n\nWe noticed it's been about 54 days since your last order, and you're usually with us every 14 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A202",
+      "name": "Agency 202",
+      "city": "Richmond",
+      "households_served": 1182,
+      "median_interval_days": 14.0,
+      "days_since_last_order": 30,
+      "missed_cycles": 2,
+      "est_undelivered_lbs": 6004.0,
+      "est_undelivered_usd": 11829.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 202 (Richmond) today; if unreachable in 48h, arrange temporary coverage for ~1182 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 202 team,\n\nWe noticed it's been about 30 days since your last order, and you're usually with us every 14 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A215",
+      "name": "Agency 215",
+      "city": "Walnut Creek",
+      "households_served": 825,
+      "median_interval_days": 14.0,
+      "days_since_last_order": 33,
+      "missed_cycles": 2,
+      "est_undelivered_lbs": 1516.0,
+      "est_undelivered_usd": 2987.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Agency Relations",
+      "action": "Call Agency 215 (Walnut Creek) today; if unreachable in 48h, arrange temporary coverage for ~825 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 215 team,\n\nWe noticed it's been about 33 days since your last order, and you're usually with us every 14 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "fading_donor",
+      "entity_id": "D03",
+      "name": "Retail Donor 03",
+      "chain": "ChainC",
+      "city": "Brentwood",
+      "baseline_weekly_lbs": 399.0,
+      "recent_weekly_lbs": 273.0,
+      "decline_pct": 31.5,
+      "annualized_loss_lbs": 6539.0,
+      "annualized_replacement_usd": 12882.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Food Resources",
+      "action": "Schedule store visit with Retail Donor 03 (ChainC, Brentwood); pickups down 31.5% \u2014 check for staffing/manager change; if unresolved, budget ~$12,882/yr replacement.",
+      "email_subject": "Thank you \u2014 and a quick check-in on pickups",
+      "email_body": "Hi Retail Donor 03 team,\n\nThank you for everything you donate \u2014 it matters enormously to our community. We've noticed recent pickups are running a bit lighter than usual and wanted to check whether anything has changed on your end \u2014 staffing, scheduling, or how we can make donating easier. We're happy to adjust pickup times or provide extra bins.\n\nWith gratitude,\nFood Resources, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "fading_donor",
+      "entity_id": "D07",
+      "name": "Retail Donor 07",
+      "chain": "ChainC",
+      "city": "Pittsburg",
+      "baseline_weekly_lbs": 1102.0,
+      "recent_weekly_lbs": 752.0,
+      "decline_pct": 31.8,
+      "annualized_loss_lbs": 18222.0,
+      "annualized_replacement_usd": 35897.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Food Resources",
+      "action": "Schedule store visit with Retail Donor 07 (ChainC, Pittsburg); pickups down 31.8% \u2014 check for staffing/manager change; if unresolved, budget ~$35,897/yr replacement.",
+      "email_subject": "Thank you \u2014 and a quick check-in on pickups",
+      "email_body": "Hi Retail Donor 07 team,\n\nThank you for everything you donate \u2014 it matters enormously to our community. We've noticed recent pickups are running a bit lighter than usual and wanted to check whether anything has changed on your end \u2014 staffing, scheduling, or how we can make donating easier. We're happy to adjust pickup times or provide extra bins.\n\nWith gratitude,\nFood Resources, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "fading_donor",
+      "entity_id": "D28",
+      "name": "Retail Donor 28",
+      "chain": "ChainC",
+      "city": "Martinez",
+      "baseline_weekly_lbs": 1730.0,
+      "recent_weekly_lbs": 716.0,
+      "decline_pct": 58.6,
+      "annualized_loss_lbs": 52741.0,
+      "annualized_replacement_usd": 103900.0
+    },
+    "triage": {
+      "severity": "HIGH",
+      "owner": "Food Resources",
+      "action": "Schedule store visit with Retail Donor 28 (ChainC, Martinez); pickups down 58.6% \u2014 check for staffing/manager change; if unresolved, budget ~$103,900/yr replacement.",
+      "email_subject": "Thank you \u2014 and a quick check-in on pickups",
+      "email_body": "Hi Retail Donor 28 team,\n\nThank you for everything you donate \u2014 it matters enormously to our community. We've noticed recent pickups are running a bit lighter than usual and wanted to check whether anything has changed on your end \u2014 staffing, scheduling, or how we can make donating easier. We're happy to adjust pickup times or provide extra bins.\n\nWith gratitude,\nFood Resources, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "silent_agency",
+      "entity_id": "A236",
+      "name": "Agency 236",
+      "city": "Pittsburg",
+      "households_served": 176,
+      "median_interval_days": 7.0,
+      "days_since_last_order": 16,
+      "missed_cycles": 2,
+      "est_undelivered_lbs": 3782.0,
+      "est_undelivered_usd": 7450.0
+    },
+    "triage": {
+      "severity": "MEDIUM",
+      "owner": "Agency Relations",
+      "action": "Call Agency 236 (Pittsburg) today; if unreachable in 48h, arrange temporary coverage for ~176 households via nearest partner.",
+      "email_subject": "Checking in from the Food Bank \u2014 anything you need?",
+      "email_body": "Hi Agency 236 team,\n\nWe noticed it's been about 16 days since your last order, and you're usually with us every 7 days \u2014 so we wanted to check in and make sure everything's okay on your end. If anything has changed (volunteers, storage, schedules), we'd love to help \u2014 including delivery options or a temporary adjustment. The neighbors you serve matter to us, and so do you.\n\nWarmly,\nAgency Relations, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "fading_donor",
+      "entity_id": "D06",
+      "name": "Retail Donor 06",
+      "chain": "Independent",
+      "city": "Martinez",
+      "baseline_weekly_lbs": 1693.0,
+      "recent_weekly_lbs": 1275.0,
+      "decline_pct": 24.7,
+      "annualized_loss_lbs": 21714.0,
+      "annualized_replacement_usd": 42777.0
+    },
+    "triage": {
+      "severity": "MEDIUM",
+      "owner": "Food Resources",
+      "action": "Schedule store visit with Retail Donor 06 (Independent, Martinez); pickups down 24.7% \u2014 check for staffing/manager change; if unresolved, budget ~$42,777/yr replacement.",
+      "email_subject": "Thank you \u2014 and a quick check-in on pickups",
+      "email_body": "Hi Retail Donor 06 team,\n\nThank you for everything you donate \u2014 it matters enormously to our community. We've noticed recent pickups are running a bit lighter than usual and wanted to check whether anything has changed on your end \u2014 staffing, scheduling, or how we can make donating easier. We're happy to adjust pickup times or provide extra bins.\n\nWith gratitude,\nFood Resources, Food Bank of Contra Costa & Solano"
+    }
+  },
+  {
+    "flag": {
+      "type": "fading_donor",
+      "entity_id": "D22",
+      "name": "Retail Donor 22",
+      "chain": "ChainC",
+      "city": "Brentwood",
+      "baseline_weekly_lbs": 1277.0,
+      "recent_weekly_lbs": 988.0,
+      "decline_pct": 22.6,
+      "annualized_loss_lbs": 14998.0,
+      "annualized_replacement_usd": 29545.0
+    },
+    "triage": {
+      "severity": "MEDIUM",
+      "owner": "Food Resources",
+      "action": "Schedule store visit with Retail Donor 22 (ChainC, Brentwood); pickups down 22.6% \u2014 check for staffing/manager change; if unresolved, budget ~$29,545/yr replacement.",
+      "email_subject": "Thank you \u2014 and a quick check-in on pickups",
+      "email_body": "Hi Retail Donor 22 team,\n\nThank you for everything you donate \u2014 it matters enormously to our community. We've noticed recent pickups are running a bit lighter than usual and wanted to check whether anything has changed on your end \u2014 staffing, scheduling, or how we can make donating easier. We're happy to adjust pickup times or provide extra bins.\n\nWith gratitude,\nFood Resources, Food Bank of Contra Costa & Solano"
+    }
+  }
+]

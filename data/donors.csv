@@ -1,0 +1,31 @@
+donor_id,name,chain,city,base_weekly_lbs
+D00,Retail Donor 00,ChainA,Richmond,264.0
+D01,Retail Donor 01,ChainB,Richmond,1576.0
+D02,Retail Donor 02,Independent,Brentwood,1549.0
+D03,Retail Donor 03,ChainC,Vacaville,1201.0
+D04,Retail Donor 04,ChainB,Concord,1056.0
+D05,Retail Donor 05,ChainA,Pittsburg,609.0
+D06,Retail Donor 06,ChainA,Vacaville,1078.0
+D07,Retail Donor 07,Independent,Antioch,463.0
+D08,Retail Donor 08,ChainB,Fairfield,848.0
+D09,Retail Donor 09,Independent,Vallejo,547.0
+D10,Retail Donor 10,ChainB,Richmond,1081.0
+D11,Retail Donor 11,ChainA,Antioch,1765.0
+D12,Retail Donor 12,Independent,San Pablo,492.0
+D13,Retail Donor 13,ChainC,Vallejo,623.0
+D14,Retail Donor 14,ChainB,Fairfield,840.0
+D15,Retail Donor 15,ChainB,Suisun City,329.0
+D16,Retail Donor 16,ChainC,Vallejo,373.0
+D17,Retail Donor 17,ChainB,Fairfield,1734.0
+D18,Retail Donor 18,ChainB,Fairfield,945.0
+D19,Retail Donor 19,ChainB,Vacaville,593.0
+D20,Retail Donor 20,Independent,Vallejo,797.0
+D21,Retail Donor 21,ChainC,Richmond,638.0
+D22,Retail Donor 22,ChainC,Martinez,853.0
+D23,Retail Donor 23,Independent,Antioch,650.0
+D24,Retail Donor 24,Independent,Brentwood,767.0
+D25,Retail Donor 25,ChainC,Brentwood,1131.0
+D26,Retail Donor 26,ChainA,Walnut Creek,1093.0
+D27,Retail Donor 27,Independent,Concord,1677.0
+D28,Retail Donor 28,Independent,Vallejo,979.0
+D29,Retail Donor 29,Independent,Vacaville,822.0

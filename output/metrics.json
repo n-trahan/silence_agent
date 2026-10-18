@@ -1,0 +1,29 @@
+{
+  "agency_detection": {
+    "injected": 5,
+    "caught": 4,
+    "missed": [
+      "A227"
+    ],
+    "false_positives": 2,
+    "false_positive_rate_pct": 0.82,
+    "median_days_to_detection": 16.0,
+    "status_quo_days_to_detection": "~75 (quarterly agency review)"
+  },
+  "donor_detection": {
+    "injected": 3,
+    "caught": 1,
+    "missed": [
+      "D13",
+      "D29"
+    ],
+    "false_positives": 0
+  },
+  "impact": {
+    "undelivered_lbs_flagged": 17998.0,
+    "undelivered_usd_flagged": 35457.0,
+    "donor_annualized_loss_lbs": 9113.0,
+    "donor_annualized_replacement_usd": 17953.0,
+    "valuation_note": "$1.97/lb per FBCCS FY2025 audited financials, Notes 5-6"
+  }
+}

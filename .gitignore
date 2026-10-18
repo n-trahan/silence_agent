@@ -1,0 +1,15 @@
+# Secrets — never commit your API key
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (deck builder)
+node_modules/
+
+# OS
+.DS_Store

@@ -1,0 +1,360 @@
+[
+  {
+    "flag": {
+      "agency_id": "B013",
+      "median_interval": 14.0,
+      "days_quiet": 33
+    },
+    "investigation": {
+      "hypothesis": "Regional disruption in Antioch: 2 other agencies there are also quiet \u2014 shared local cause more likely than agency-specific failure.",
+      "confidence": "medium",
+      "pattern": "REGIONAL",
+      "channel": "escalate_to_director",
+      "reasoning": "Order history shows a cold stop after 1.9 yrs / 47 orders. Neighbor check: REGIONAL (2 of 23 siblings quiet).",
+      "outreach_draft": "Hi Agency B013 team,\n\nWe noticed a change in your usual ordering rhythm and wanted to reach out personally. If anything has shifted on your end \u2014 volunteers, space, funding, anything \u2014 we'd love to help you keep serving your neighbors, whether that's delivery support, a schedule change, or just a conversation. You matter to us.\n\nWarmly,\nAgency Relations"
+    },
+    "tool_trace": [
+      {
+        "tool": "get_order_history",
+        "result": {
+          "agency_id": "B013",
+          "orders_on_record": 47,
+          "tenure_days": 679,
+          "last_10_dates": [
+            "2026-02-04",
+            "2026-02-16",
+            "2026-03-01",
+            "2026-03-14",
+            "2026-03-29",
+            "2026-04-12",
+            "2026-04-28",
+            "2026-05-14",
+            "2026-05-28",
+            "2026-06-10"
+          ],
+          "last_10_pounds": [
+            3082,
+            3374,
+            3255,
+            4474,
+            2692,
+            3377,
+            3226,
+            3113,
+            3107,
+            3710
+          ],
+          "volume_tapered_before_silence": false,
+          "avg_order_lbs": 3204
+        }
+      },
+      {
+        "tool": "check_neighbor_agencies",
+        "result": {
+          "city": "Antioch",
+          "sibling_agencies": 23,
+          "siblings_also_quiet": [
+            "B088",
+            "B119"
+          ],
+          "pattern": "REGIONAL"
+        }
+      },
+      {
+        "tool": "check_local_donors",
+        "result": {
+          "available": true,
+          "city": "Antioch",
+          "local_donors": 2,
+          "local_donors_fading": []
+        }
+      }
+    ]
+  },
+  {
+    "flag": {
+      "agency_id": "B092",
+      "median_interval": 22.0,
+      "days_quiet": 63
+    },
+    "investigation": {
+      "hypothesis": "Sudden organizational disruption: 1.8 years of steady rhythm, then a cold stop with no taper \u2014 pattern matches coordinator loss or abrupt operational failure.",
+      "confidence": "high",
+      "pattern": "ISOLATED",
+      "channel": "email",
+      "reasoning": "Order history shows a cold stop after 1.8 yrs / 30 orders. Neighbor check: ISOLATED (0 of 25 siblings quiet).",
+      "outreach_draft": "Hi Agency B092 team,\n\nWe noticed a change in your usual ordering rhythm and wanted to reach out personally. If anything has shifted on your end \u2014 volunteers, space, funding, anything \u2014 we'd love to help you keep serving your neighbors, whether that's delivery support, a schedule change, or just a conversation. You matter to us.\n\nWarmly,\nAgency Relations"
+    },
+    "tool_trace": [
+      {
+        "tool": "get_order_history",
+        "result": {
+          "agency_id": "B092",
+          "orders_on_record": 30,
+          "tenure_days": 658,
+          "last_10_dates": [
+            "2025-10-31",
+            "2025-11-19",
+            "2025-12-09",
+            "2025-12-31",
+            "2026-01-23",
+            "2026-02-15",
+            "2026-03-06",
+            "2026-03-28",
+            "2026-04-20",
+            "2026-05-11"
+          ],
+          "last_10_pounds": [
+            4581,
+            5167,
+            6077,
+            6576,
+            3962,
+            6549,
+            6902,
+            5262,
+            5218,
+            5398
+          ],
+          "volume_tapered_before_silence": false,
+          "avg_order_lbs": 5548
+        }
+      },
+      {
+        "tool": "check_neighbor_agencies",
+        "result": {
+          "city": "Fairfield",
+          "sibling_agencies": 25,
+          "siblings_also_quiet": [],
+          "pattern": "ISOLATED"
+        }
+      },
+      {
+        "tool": "check_local_donors",
+        "result": {
+          "available": true,
+          "city": "Fairfield",
+          "local_donors": 0,
+          "local_donors_fading": []
+        }
+      }
+    ]
+  },
+  {
+    "flag": {
+      "agency_id": "B131",
+      "median_interval": 14.0,
+      "days_quiet": 32
+    },
+    "investigation": {
+      "hypothesis": "Sudden organizational disruption: 1.9 years of steady rhythm, then a cold stop with no taper \u2014 pattern matches coordinator loss or abrupt operational failure.",
+      "confidence": "high",
+      "pattern": "ISOLATED",
+      "channel": "email",
+      "reasoning": "Order history shows a cold stop after 1.9 yrs / 50 orders. Neighbor check: ISOLATED (1 of 22 siblings quiet). Note: 1 retail donor(s) in Brentwood are also fading \u2014 possible community-level stress signal worth logging for the quarterly root-cause report.",
+      "outreach_draft": "Hi Agency B131 team,\n\nWe noticed a change in your usual ordering rhythm and wanted to reach out personally. If anything has shifted on your end \u2014 volunteers, space, funding, anything \u2014 we'd love to help you keep serving your neighbors, whether that's delivery support, a schedule change, or just a conversation. You matter to us.\n\nWarmly,\nAgency Relations"
+    },
+    "tool_trace": [
+      {
+        "tool": "get_order_history",
+        "result": {
+          "agency_id": "B131",
+          "orders_on_record": 50,
+          "tenure_days": 687,
+          "last_10_dates": [
+            "2026-02-02",
+            "2026-02-18",
+            "2026-03-05",
+            "2026-03-17",
+            "2026-03-31",
+            "2026-04-16",
+            "2026-04-29",
+            "2026-05-14",
+            "2026-05-27",
+            "2026-06-11"
+          ],
+          "last_10_pounds": [
+            672,
+            656,
+            643,
+            539,
+            383,
+            730,
+            571,
+            433,
+            564,
+            418
+          ],
+          "volume_tapered_before_silence": false,
+          "avg_order_lbs": 516
+        }
+      },
+      {
+        "tool": "check_neighbor_agencies",
+        "result": {
+          "city": "Brentwood",
+          "sibling_agencies": 22,
+          "siblings_also_quiet": [
+            "B238"
+          ],
+          "pattern": "ISOLATED"
+        }
+      },
+      {
+        "tool": "check_local_donors",
+        "result": {
+          "available": true,
+          "city": "Brentwood",
+          "local_donors": 5,
+          "local_donors_fading": [
+            "E03"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "flag": {
+      "agency_id": "B141",
+      "median_interval": 7.0,
+      "days_quiet": 15
+    },
+    "investigation": {
+      "hypothesis": "Sudden organizational disruption: 2.0 years of steady rhythm, then a cold stop with no taper \u2014 pattern matches coordinator loss or abrupt operational failure.",
+      "confidence": "high",
+      "pattern": "ISOLATED",
+      "channel": "email",
+      "reasoning": "Order history shows a cold stop after 2.0 yrs / 102 orders. Neighbor check: ISOLATED (1 of 16 siblings quiet).",
+      "outreach_draft": "Hi Agency B141 team,\n\nWe noticed a change in your usual ordering rhythm and wanted to reach out personally. If anything has shifted on your end \u2014 volunteers, space, funding, anything \u2014 we'd love to help you keep serving your neighbors, whether that's delivery support, a schedule change, or just a conversation. You matter to us.\n\nWarmly,\nAgency Relations"
+    },
+    "tool_trace": [
+      {
+        "tool": "get_order_history",
+        "result": {
+          "agency_id": "B141",
+          "orders_on_record": 102,
+          "tenure_days": 714,
+          "last_10_dates": [
+            "2026-04-29",
+            "2026-05-06",
+            "2026-05-11",
+            "2026-05-17",
+            "2026-05-23",
+            "2026-05-31",
+            "2026-06-07",
+            "2026-06-13",
+            "2026-06-20",
+            "2026-06-28"
+          ],
+          "last_10_pounds": [
+            1502,
+            1381,
+            1366,
+            2218,
+            1232,
+            1391,
+            1671,
+            2014,
+            1204,
+            1168
+          ],
+          "volume_tapered_before_silence": false,
+          "avg_order_lbs": 1446
+        }
+      },
+      {
+        "tool": "check_neighbor_agencies",
+        "result": {
+          "city": "Suisun City",
+          "sibling_agencies": 16,
+          "siblings_also_quiet": [
+            "B016"
+          ],
+          "pattern": "ISOLATED"
+        }
+      },
+      {
+        "tool": "check_local_donors",
+        "result": {
+          "available": true,
+          "city": "Suisun City",
+          "local_donors": 2,
+          "local_donors_fading": []
+        }
+      }
+    ]
+  },
+  {
+    "flag": {
+      "agency_id": "B238",
+      "median_interval": 29.0,
+      "days_quiet": 78
+    },
+    "investigation": {
+      "hypothesis": "Sudden organizational disruption: 1.7 years of steady rhythm, then a cold stop with no taper \u2014 pattern matches coordinator loss or abrupt operational failure.",
+      "confidence": "high",
+      "pattern": "ISOLATED",
+      "channel": "email",
+      "reasoning": "Order history shows a cold stop after 1.7 yrs / 21 orders. Neighbor check: ISOLATED (1 of 22 siblings quiet). Note: 1 retail donor(s) in Brentwood are also fading \u2014 possible community-level stress signal worth logging for the quarterly root-cause report.",
+      "outreach_draft": "Hi Agency B238 team,\n\nWe noticed a change in your usual ordering rhythm and wanted to reach out personally. If anything has shifted on your end \u2014 volunteers, space, funding, anything \u2014 we'd love to help you keep serving your neighbors, whether that's delivery support, a schedule change, or just a conversation. You matter to us.\n\nWarmly,\nAgency Relations"
+    },
+    "tool_trace": [
+      {
+        "tool": "get_order_history",
+        "result": {
+          "agency_id": "B238",
+          "orders_on_record": 21,
+          "tenure_days": 626,
+          "last_10_dates": [
+            "2025-06-16",
+            "2025-07-16",
+            "2025-08-14",
+            "2025-09-12",
+            "2025-10-08",
+            "2025-12-04",
+            "2026-01-03",
+            "2026-01-30",
+            "2026-02-27",
+            "2026-04-26"
+          ],
+          "last_10_pounds": [
+            1029,
+            1426,
+            2643,
+            2326,
+            1319,
+            2455,
+            2382,
+            1973,
+            1951,
+            1669
+          ],
+          "volume_tapered_before_silence": false,
+          "avg_order_lbs": 1958
+        }
+      },
+      {
+        "tool": "check_neighbor_agencies",
+        "result": {
+          "city": "Brentwood",
+          "sibling_agencies": 22,
+          "siblings_also_quiet": [
+            "B131"
+          ],
+          "pattern": "ISOLATED"
+        }
+      },
+      {
+        "tool": "check_local_donors",
+        "result": {
+          "available": true,
+          "city": "Brentwood",
+          "local_donors": 5,
+          "local_donors_fading": [
+            "E03"
+          ]
+        }
+      }
+    ]
+  }
+]

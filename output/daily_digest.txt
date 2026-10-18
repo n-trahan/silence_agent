@@ -1,0 +1,40 @@
+SILENCE REPORT — 2026-07-14  (mode: DEMO)
+============================================================
+[HIGH] SILENT AGENCY: Agency 029 (San Pablo) — 53d quiet (normal: every 14d) — ~2,436 lbs / $4,798 undelivered — 631 households affected
+    -> Agency Relations: Call Agency 029 (San Pablo) today; if unreachable in 48h, arrange temporary coverage for ~631 households via nearest partner.
+
+[HIGH] SILENT AGENCY: Agency 035 (Martinez) — 61d quiet (normal: every 15d) — ~2,469 lbs / $4,865 undelivered — 370 households affected
+    -> Agency Relations: Call Agency 035 (Martinez) today; if unreachable in 48h, arrange temporary coverage for ~370 households via nearest partner.
+
+[HIGH] SILENT AGENCY: Agency 057 (Suisun City) — 30d quiet (normal: every 14d) — ~2,219 lbs / $4,371 undelivered — 1127 households affected
+    -> Agency Relations: Call Agency 057 (Suisun City) today; if unreachable in 48h, arrange temporary coverage for ~1127 households via nearest partner.
+
+[HIGH] SILENT AGENCY: Agency 082 (Richmond) — 33d quiet (normal: every 15d) — ~4,801 lbs / $9,458 undelivered — 803 households affected
+    -> Agency Relations: Call Agency 082 (Richmond) today; if unreachable in 48h, arrange temporary coverage for ~803 households via nearest partner.
+
+[HIGH] SILENT AGENCY: Agency 144 (Vacaville) — 54d quiet (normal: every 14d) — ~6,590 lbs / $12,981 undelivered — 778 households affected
+    -> Agency Relations: Call Agency 144 (Vacaville) today; if unreachable in 48h, arrange temporary coverage for ~778 households via nearest partner.
+
+[HIGH] SILENT AGENCY: Agency 202 (Richmond) — 30d quiet (normal: every 14d) — ~6,004 lbs / $11,829 undelivered — 1182 households affected
+    -> Agency Relations: Call Agency 202 (Richmond) today; if unreachable in 48h, arrange temporary coverage for ~1182 households via nearest partner.
+
+[HIGH] SILENT AGENCY: Agency 215 (Walnut Creek) — 33d quiet (normal: every 14d) — ~1,516 lbs / $2,987 undelivered — 825 households affected
+    -> Agency Relations: Call Agency 215 (Walnut Creek) today; if unreachable in 48h, arrange temporary coverage for ~825 households via nearest partner.
+
+[HIGH] FADING DONOR: Retail Donor 03 (Brentwood) — down 31.5% — $12,882/yr replacement cost if lost
+    -> Food Resources: Schedule store visit with Retail Donor 03 (ChainC, Brentwood); pickups down 31.5% — check for staffing/manager change; if unresolved, budget ~$12,882/yr replacement.
+
+[HIGH] FADING DONOR: Retail Donor 07 (Pittsburg) — down 31.8% — $35,897/yr replacement cost if lost
+    -> Food Resources: Schedule store visit with Retail Donor 07 (ChainC, Pittsburg); pickups down 31.8% — check for staffing/manager change; if unresolved, budget ~$35,897/yr replacement.
+
+[HIGH] FADING DONOR: Retail Donor 28 (Martinez) — down 58.6% — $103,900/yr replacement cost if lost
+    -> Food Resources: Schedule store visit with Retail Donor 28 (ChainC, Martinez); pickups down 58.6% — check for staffing/manager change; if unresolved, budget ~$103,900/yr replacement.
+
+[MEDIUM] SILENT AGENCY: Agency 236 (Pittsburg) — 16d quiet (normal: every 7d) — ~3,782 lbs / $7,450 undelivered — 176 households affected
+    -> Agency Relations: Call Agency 236 (Pittsburg) today; if unreachable in 48h, arrange temporary coverage for ~176 households via nearest partner.
+
+[MEDIUM] FADING DONOR: Retail Donor 06 (Martinez) — down 24.7% — $42,777/yr replacement cost if lost
+    -> Food Resources: Schedule store visit with Retail Donor 06 (Independent, Martinez); pickups down 24.7% — check for staffing/manager change; if unresolved, budget ~$42,777/yr replacement.
+
+[MEDIUM] FADING DONOR: Retail Donor 22 (Brentwood) — down 22.6% — $29,545/yr replacement cost if lost
+    -> Food Resources: Schedule store visit with Retail Donor 22 (ChainC, Brentwood); pickups down 22.6% — check for staffing/manager change; if unresolved, budget ~$29,545/yr replacement.

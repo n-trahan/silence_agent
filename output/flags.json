@@ -1,0 +1,86 @@
+[
+  {
+    "type": "silent_agency",
+    "entity_id": "A009",
+    "name": "Agency 009",
+    "city": "Walnut Creek",
+    "households_served": 219,
+    "median_interval_days": 14.0,
+    "days_since_last_order": 55,
+    "missed_cycles": 3,
+    "est_undelivered_lbs": 5677.0,
+    "est_undelivered_usd": 11184.0
+  },
+  {
+    "type": "silent_agency",
+    "entity_id": "A058",
+    "name": "Agency 058",
+    "city": "Pittsburg",
+    "households_served": 646,
+    "median_interval_days": 7.0,
+    "days_since_last_order": 15,
+    "missed_cycles": 2,
+    "est_undelivered_lbs": 1913.0,
+    "est_undelivered_usd": 3769.0
+  },
+  {
+    "type": "silent_agency",
+    "entity_id": "A059",
+    "name": "Agency 059",
+    "city": "Antioch",
+    "households_served": 363,
+    "median_interval_days": 14.0,
+    "days_since_last_order": 30,
+    "missed_cycles": 2,
+    "est_undelivered_lbs": 2448.0,
+    "est_undelivered_usd": 4823.0
+  },
+  {
+    "type": "silent_agency",
+    "entity_id": "A148",
+    "name": "Agency 148",
+    "city": "Richmond",
+    "households_served": 70,
+    "median_interval_days": 8.0,
+    "days_since_last_order": 36,
+    "missed_cycles": 4,
+    "est_undelivered_lbs": 5523.0,
+    "est_undelivered_usd": 10880.0
+  },
+  {
+    "type": "silent_agency",
+    "entity_id": "A166",
+    "name": "Agency 166",
+    "city": "Walnut Creek",
+    "households_served": 1061,
+    "median_interval_days": 14.0,
+    "days_since_last_order": 55,
+    "missed_cycles": 3,
+    "est_undelivered_lbs": 1013.0,
+    "est_undelivered_usd": 1996.0
+  },
+  {
+    "type": "silent_agency",
+    "entity_id": "A223",
+    "name": "Agency 223",
+    "city": "Suisun City",
+    "households_served": 534,
+    "median_interval_days": 29.0,
+    "days_since_last_order": 80,
+    "missed_cycles": 2,
+    "est_undelivered_lbs": 1424.0,
+    "est_undelivered_usd": 2805.0
+  },
+  {
+    "type": "fading_donor",
+    "entity_id": "D05",
+    "name": "Retail Donor 05",
+    "chain": "ChainA",
+    "city": "Pittsburg",
+    "baseline_weekly_lbs": 558.0,
+    "recent_weekly_lbs": 382.0,
+    "decline_pct": 31.4,
+    "annualized_loss_lbs": 9113.0,
+    "annualized_replacement_usd": 17953.0
+  }
+]
